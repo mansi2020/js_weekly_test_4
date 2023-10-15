@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sort The Table</title>
+    <style>
+        body{
+            height:100vh;
+            width:100vw;
+            overflow: hidden;
+            background: linear-gradient(90deg, rgba(131,58,180,1) 0%, rgba(253,29,29,1) 50%, rgba(252,176,69,1) 100%);
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        h1{
+            color:white;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        .content{
+            background: linear-gradient(0deg, rgba(99,2,2,1) 0%, rgba(0,0,0,1) 100%);
+            box-shadow: inset 4px 4px 20px yellow;
+            border-radius: 1rem;
+            width:500px;
+            margin:auto;
+            text-align: center;
+            padding:1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+        button{
+            padding:10px 40px;
+            color:white;
+            background: linear-gradient(90deg, rgba(131,58,180,1) 0%, rgba(253,29,29,1) 50%, rgba(252,176,69,1) 100%);
+            border-radius: 1rem;
+            margin-top: 5rem;
+            font-size:1.3rem;
+        }
+        button:hover{
+            border : 2px solid rgba(252,176,69,1);
+            background: transparent;
+        }
+    tr,td,table{
+            text-align:center;
+            color:white;
+            font-size:1.6rem;
+            padding:2px;
+            border-bottom: 2px dotted yellow;
+        }
+        #heading{
+            padding:10px 40px;
+            background: linear-gradient(90deg, rgba(131,58,180,1) 0%, rgba(253,29,29,1) 50%, rgba(252,176,69,1) 100%);
+            width:400px;
+            color:white;
+            border-radius: 0.5rem;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Click the button to sort the table alphabatically ,based on customer name: </h1>
+    <div class="content">
+        
+
+        <table id="customerTable">
+            <tr>
+                <td style="font-weight: bolder;background-color:pink" id="heading">Customer Name</td>
+
+            </tr>
+            <tr>
+                <td>Sarah Anderson</td>
+
+            </tr>
+            <tr>
+                <td>David Wilson</td>
+
+            </tr>
+            <tr>
+                <td>Maria Garcia</td>
+
+            </tr>
+            <tr>
+                <td>Thomas Müller</td>
+
+            </tr>
+            <tr>
+                <td>Anna Petrov</td>
+
+            </tr>
+            <tr>
+                <td>Olivia Li</td>
+
+            </tr>
+            <tr>
+                <td>Ahmed Khan</td>
+
+            </tr>
+            <tr>
+                <td>Sofia Lopez</td>
+
+            </tr>
+            <tr>
+                <td>Anders Svensson</td>
+
+            </tr>
+            <tr>
+                <td>Fatima Al-Mansoori</td>
+
+            </tr>
+        </table>
+        <button>Sort</button>
+    </div>
+
+    <script>
+        //TODO Fetch the value from html of table and row
+        let table = document.getElementById("customerTable")
+        let rows = Array.from(table.getElementsByTagName("tr"));
+        let sortValueOfTable = document.querySelector("button");
+        // console.log(sortValueOfTable);
+
+        rows.shift();
+
+        //todo click the button to sort value according to user name
+        sortValueOfTable.addEventListener("click", () => {
+            rows.sort((a, b) => {
+                var nameA = a.querySelector("td").textContent;
+                var nameB = b.querySelector("td").textContent;
+                return nameA.localeCompare(nameB);
+
+            })
+
+            //todo update the table with sorted name
+            rows.forEach((row) => {
+                table.appendChild(row);
+            })
+        })
+
+    </script>
+
+</body>
+
+</html>

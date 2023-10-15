@@ -1,0 +1,81 @@
+*{
+    padding:0;
+    margin:0;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.profile{
+    height:100px;
+    width:100px;
+    border-radius: 50%;
+    background-color: green;
+    text-align: center;
+    background-image: url("./Assets/1.avif");
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin:auto;
+    margin-bottom: 2rem;
+}
+
+#main{
+    background : url("./Assets/2.avif");
+    background-repeat: no-repeat;
+    background-size: cover;
+    height:97vh;
+    width:98vw;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#container{
+    background-color: black;
+    width:500px;
+    color:rgb(35,157,170);
+    padding:20px;
+    border-radius: 1rem;
+    box-shadow: inset 2px 2px 20px yellow;
+}
+#userNameErrorMessages,#passwordErrorMessages{
+    color:red;
+    margin-top: 1rem;
+    display:none;
+}
+input{
+    width:100%;
+    padding:10px;
+    border: 2px solid rgb(35,157,170);
+    background-color: transparent;
+    border-radius: 10px;
+}
+label{
+    font-size: 1.5rem;
+    margin-bottom: -1rem;
+}
+
+#bu{
+    background-color: rgba(254,214,14);
+    border:none;
+    width:100%;
+    padding:12px;
+    font-size:1.3rem;
+    font-weight: 700;
+    border-radius: 10px;
+    margin-top: 2rem;
+}
+
+#bu:hover{
+    background-color:transparent;
+    border:2px solid rgba(254,214,14);
+    color:rgba(254,214,14);
+}
+
+::placeholder{
+    color:rgb(214, 244, 247)
+}
+
+#crosssign{
+    position: relative;
+    right:-28rem;
+}

@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task-1: Filtering a list</title>
+</head>
+<style>
+    body{
+        height:100vh;
+        width:100vw;
+        overflow: hidden;
+        background: linear-gradient(90deg, rgba(131,58,180,1) 0%, rgba(253,29,29,1) 50%, rgba(252,176,69,1) 100%);
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+    h1{
+        color:white;
+        text-align: center;
+        margin-bottom: 2rem;
+    }
+    .content{
+        background: linear-gradient(0deg, rgba(99,2,2,1) 0%, rgba(0,0,0,1) 100%);
+        box-shadow: inset 4px 4px 20px yellow;
+        border-radius: 1rem;
+        width:500px;
+        margin:auto;
+        text-align: center;
+        padding:3rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+    }
+    button{
+        padding:10px 40px;
+        color:white;
+        background: linear-gradient(90deg, rgba(131,58,180,1) 0%, rgba(253,29,29,1) 50%, rgba(252,176,69,1) 100%);
+        border-radius: 1rem;
+        margin-top: 5rem;
+        font-size:1.3rem;
+    }
+    button:hover{
+        border : 2px solid rgba(252,176,69,1);
+        background: transparent;
+    }
+tr,td{
+        text-align:center;
+        color:white;
+        font-size:1.6rem;
+        padding:2px;
+        background: linear-gradient(90deg, rgba(131,58,180,1) 0%, rgba(253,29,29,1) 50%, rgba(252,176,69,1) 100%);
+        width:300px;
+    }
+    #searchTheValue{
+        padding:10px 40px;
+        background: linear-gradient(90deg, rgba(131,58,180,1) 0%, rgba(253,29,29,1) 50%, rgba(252,176,69,1) 100%);
+        width:500px;
+        color:white;
+        border-radius: 0.5rem;
+        margin-bottom: 2rem;
+    }
+
+    ::placeholder{
+        color:white;
+    }
+</style>
+
+<body>
+    <h1>Search a Customer Name: </h1>
+    <div class="content">
+        <input type="search" placeholder="Search for names.." id="searchTheValue"></input>
+        <table id="myTable">
+            <tr>
+                <th style="border: 2px solid blue; background:black; color:yellow; font-size: 2rem;">Customer Name</th>
+               
+            </tr>
+            <tr>
+                <td>Sarah Anderson</td>
+            </tr>
+            <tr>
+                <td>David Wilson</td>
+            
+            </tr>
+            <tr>
+                <td>Maria Garcia</td>
+             
+            </tr>
+            <tr>
+                <td>Thomas Müller</td>
+            
+            </tr>
+            <tr>
+                <td>Anna Petrov</td>
+                
+            </tr>
+            <tr>
+                <td>Olivia Li</td>
+               
+            </tr>
+            <tr>
+                <td>Ahmed Khan</td>
+            
+            </tr>
+            <tr>
+                <td>Sofia Lopez</td>
+                
+            </tr>
+            <tr>
+                <td>Anders Svensson</td>
+                
+            </tr>
+            <tr>
+                <td>Fatima Al-Mansoori</td>
+             
+            </tr>
+        </table>
+    </div>
+
+    <script>
+        let inputText = document.querySelector("input")
+
+        inputText.addEventListener("keyup", () => {
+            inputText = document.querySelector("input").value.toLowerCase();
+            // console.log(inputText.value.toLowerCase());
+            let myTable = document.getElementById("myTable");
+            let rows = myTable.getElementsByTagName("tr");
+
+            for (let i = 0; i < rows.length; i++) {
+                let td = rows[i].getElementsByTagName("td")[0];
+                if (td) {
+                    let tableTextValue = td.textContent || td.innerHTML;
+
+                    if (tableTextValue.toLowerCase().indexOf(inputText) > -1) {
+                        rows[i].style.display = "block";
+                    } else {
+                        rows[i].style.display = "none";
+                    }
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>
